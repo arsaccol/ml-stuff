@@ -1,5 +1,5 @@
 '''
-The idea here is to experiment with the concept of a proper Python 
+The idea here is to do some 'trivial' linear regression with gradient descent lol
 '''
 
 import numpy as np
@@ -20,7 +20,7 @@ def loss_function(phi0, phi1, X, Y):
 
     return loss
 
-def gradient_descent(X, Y, learning_rate=0.01, epochs = 10):
+def gradient_descent(X, Y, learning_rate=0.001, epochs = 20):
     phi0 = 1
     phi1 = 1
 
@@ -37,6 +37,7 @@ def gradient_descent(X, Y, learning_rate=0.01, epochs = 10):
 
         #if(epoch % 10 == 0):
         #    print(f'Epoch {epoch}: Loss {loss}')
+        print(f'dphi0: {dphi0} dphi1: {dphi1} \t phi0 {phi0} phi1{phi1}')
         print(f'Epoch {epoch}: Loss {loss}')
 
     return phi0, phi1
@@ -86,11 +87,6 @@ def loss_derivative_phi1():
 learned_phi0, learned_phi1 = gradient_descent(X, Y)
 
 learned_function = linear_function_exact(X, linear_intercept=phi0, slope=phi1)
-
-
-
-
-
 
 
 
